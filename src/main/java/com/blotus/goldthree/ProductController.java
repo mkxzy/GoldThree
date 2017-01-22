@@ -3,6 +3,7 @@ package com.blotus.goldthree;
 import com.blotus.goldthree.entity.Product;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -22,5 +23,13 @@ public class ProductController {
         p.setName("abd");
         list.add(p);
         return list;
+    }
+
+    @RequestMapping(value = "/products/detail", method = RequestMethod.GET, produces = "application/json")
+    public Product getProductsById(@RequestParam(value="id")int id){
+        Product p = new Product();
+        p.setId(1);
+        p.setName("苹果手机");
+        return p;
     }
 }
